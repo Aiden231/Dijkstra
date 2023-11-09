@@ -84,7 +84,7 @@ int main()
 	
 	shortest_path(&g, 0);
 
-	printf(" 순서 출력 \n");
+	printf(" 순서 출력 \n"); // prev 구현해서 추가 후 출력에 사용
 
 	return 0;
 }
