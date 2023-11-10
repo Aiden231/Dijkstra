@@ -7,14 +7,14 @@
 #define MAX_VERTICES 100
 #define INF 10000
 
-// ³ëµå ±¸Á¶Ã¼
+// ë…¸ë“œ êµ¬ì¡°ì²´
 typedef struct node {
 	int vertex;
 	int weight;
 	struct node* next;
 } Node;
 
-// ±¸Á¶Ã¼ (ÀÎÁ¢ ¸®½ºÆ®)
+// êµ¬ì¡°ì²´ (ì¸ì ‘ ë¦¬ìŠ¤íŠ¸)
 typedef struct graphType {
 	int n;
 	Node* adjList[MAX_VERTICES];
@@ -24,7 +24,7 @@ int distance[MAX_VERTICES];
 int found[MAX_VERTICES];
 int prev[MAX_VERTICES];
 
-// choose ÇÔ¼ö
+// choose í•¨ìˆ˜
 int choose(int distance[], int n, int found[]) {
 	int i, min, minpos;
 	min = INT_MAX;
@@ -38,7 +38,7 @@ int choose(int distance[], int n, int found[]) {
 	return minpos;
 }
 
-// Ãâ·Â ÇÔ¼ö
+// ì¶œë ¥ í•¨ìˆ˜
 void print_status(GraphType* g) {
 	printf("Distance : ");
 	for (int i = 0; i < g->n; i++) {
@@ -54,7 +54,7 @@ void print_status(GraphType* g) {
 	printf("\n\n");
 }
 
-// °£¼± Ãß°¡ ÇÔ¼ö
+// ê°„ì„  ì¶”ê°€ í•¨ìˆ˜
 void insert_edge(GraphType* g, int src, int dest, int weight) {
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->vertex = dest;
@@ -63,7 +63,7 @@ void insert_edge(GraphType* g, int src, int dest, int weight) {
 	g->adjList[src] = newNode;
 }
 
-// ´ÙÀÍ½ºÆ®¶ó Ã£±â 
+// ë‹¤ìµìŠ¤íŠ¸ë¼ ì°¾ê¸° 
 void shortest_path(GraphType* g, int start) {
 	int i, u, w;
 	for (i = 0; i < g->n; i++) {
@@ -93,7 +93,7 @@ void shortest_path(GraphType* g, int start) {
 
 int main()
 {
-	printf("Dijkstra Algorithm / 2¹ø±îÁö ±¸Çö\n\n");
+	printf("Dijkstra Algorithm / 2ë²ˆê¹Œì§€ êµ¬í˜„\n\n");
 	
 	GraphType g = { 10, {NULL} };
 
@@ -120,7 +120,7 @@ int main()
 
 	shortest_path(&g, 0);
 
-	// Ãâ·Â
+  	// ì¶œë ¥
 	for (int i = 0; i < g.n; i++) {
 		printf("%d ", prev[i]+1);
 	}
